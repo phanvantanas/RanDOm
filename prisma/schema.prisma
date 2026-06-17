@@ -28,5 +28,6 @@ model SpinHistory {
   id           String   @id @default(uuid())
   itemName     String
   categoryName String
+  clientId     String   @default("")
   spunAt       DateTime @default(now())
 }

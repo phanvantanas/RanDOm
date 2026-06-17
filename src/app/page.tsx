@@ -39,14 +39,26 @@ export default function Home() {
   // Winner Overlay State
   const [winner, setWinner] = useState<WheelItem | null>(null);
 
+  // Get or generate a unique client ID (for tracking this specific machine/browser)
+  const getClientId = (): string => {
+    if (typeof window === 'undefined') return '';
+    let id = localStorage.getItem('spin_client_id');
+    if (!id) {
+      id = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2) + Date.now().toString(36);
+      localStorage.setItem('spin_client_id', id);
+    }
+    return id;
+  };
+
   // Fetch initial data on mount
   useEffect(() => {
     async function initData() {
       try {
+        const id = getClientId();
         const catRes = await fetch('/api/categories');
         const catData = await catRes.json();
 
-        const histRes = await fetch('/api/history');
+        const histRes = await fetch(`/api/history?clientId=${id}`);
         const histData = await histRes.json();
 
         setDbAvailable(catData.dbAvailable);
@@ -264,12 +276,14 @@ export default function Home() {
     setWinner(winningItem);
 
     try {
+      const id = getClientId();
       const res = await fetch('/api/history', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           itemName: winningItem.name,
           categoryName,
+          clientId: id,
         }),
       });
       const data = await res.json();
@@ -299,7 +313,8 @@ export default function Home() {
     if (!confirm("Bạn có muốn xóa toàn bộ lịch sử quay thưởng không?")) return;
 
     try {
-      const res = await fetch('/api/history', { method: 'DELETE' });
+      const id = getClientId();
+      const res = await fetch(`/api/history?clientId=${id}`, { method: 'DELETE' });
       if (res.ok) {
         setHistory([]);
         if (!dbAvailable) {

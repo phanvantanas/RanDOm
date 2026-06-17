@@ -1,13 +1,19 @@
 import { NextResponse } from 'next/server';
 import { prisma, isDbAvailable } from '@/lib/prisma';
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const clientId = searchParams.get('clientId') || '';
+
   if (!isDbAvailable || !prisma) {
     return NextResponse.json({ history: [], dbAvailable: false });
   }
 
   try {
     const history = await prisma.spinHistory.findMany({
+      where: {
+        clientId: clientId,
+      },
       orderBy: { spunAt: 'desc' },
       take: 20,
     });
@@ -21,7 +27,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { itemName, categoryName } = body;
+    const { itemName, categoryName, clientId } = body;
 
     if (!itemName || !categoryName) {
       return NextResponse.json({ error: 'itemName and categoryName are required' }, { status: 400 });
@@ -33,6 +39,7 @@ export async function POST(request: Request) {
           id: `mock-history-${Date.now()}`,
           itemName,
           categoryName,
+          clientId: clientId || '',
           spunAt: new Date().toISOString()
         },
         dbAvailable: false
@@ -43,6 +50,7 @@ export async function POST(request: Request) {
       data: {
         itemName,
         categoryName,
+        clientId: clientId || '',
       },
     });
 
@@ -53,13 +61,20 @@ export async function POST(request: Request) {
   }
 }
 
-export async function DELETE() {
+export async function DELETE(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const clientId = searchParams.get('clientId') || '';
+
   if (!isDbAvailable || !prisma) {
     return NextResponse.json({ success: true, dbAvailable: false });
   }
 
   try {
-    await prisma.spinHistory.deleteMany();
+    await prisma.spinHistory.deleteMany({
+      where: {
+        clientId: clientId,
+      },
+    });
     return NextResponse.json({ success: true, dbAvailable: true });
   } catch (error) {
     console.error("DELETE /api/history error:", error);
