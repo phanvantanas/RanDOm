@@ -134,7 +134,7 @@ export default function WheelSpinner({ items, onSpinComplete }: WheelSpinnerProp
     ctx.arc(center, center, 22, 0, 2 * Math.PI);
     ctx.fillStyle = '#0f172a';
     ctx.fill();
-    ctx.strokeStyle = '#6366f1';
+    ctx.strokeStyle = '#db2777';
     ctx.lineWidth = 3;
     ctx.stroke();
 

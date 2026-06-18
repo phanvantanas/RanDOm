@@ -5,6 +5,7 @@ import WheelSpinner from '@/components/WheelSpinner';
 import CategorySelector from '@/components/CategorySelector';
 import OptionsManager from '@/components/OptionsManager';
 import HistoryLog from '@/components/HistoryLog';
+import HeartsBackground from '@/components/HeartsBackground';
 import { Sparkles, Trophy, X, Database, AlertCircle } from 'lucide-react';
 import styles from './page.module.css';
 
@@ -340,6 +341,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <HeartsBackground />
       {/* Background blobs for premium glassmorphism glow */}
       <div className={styles.blob1}></div>
       <div className={styles.blob2}></div>

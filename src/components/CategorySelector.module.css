@@ -22,7 +22,7 @@
 .icon {
   width: 18px;
   height: 18px;
-  color: #6366f1;
+  color: #f43f5e;
 }
 
 .tabsList {
@@ -62,13 +62,13 @@
 
 .tabWrapper:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(244, 63, 94, 0.35);
 }
 
 .activeTab {
-  background: rgba(99, 102, 241, 0.15);
-  border-color: rgba(99, 102, 241, 0.6);
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.1);
+  background: rgba(244, 63, 94, 0.2);
+  border-color: rgba(244, 63, 94, 0.7);
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.15);
 }
 
 .tabButton {
@@ -136,8 +136,8 @@
 }
 
 .input:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 8px rgba(99, 102, 241, 0.2);
+  border-color: #f43f5e;
+  box-shadow: 0 0 8px rgba(244, 63, 94, 0.25);
 }
 
 .input::placeholder {
@@ -145,7 +145,7 @@
 }
 
 .addButton {
-  background: #6366f1;
+  background: #f43f5e;
   border: none;
   border-radius: 8px;
   color: #ffffff;
@@ -159,7 +159,7 @@
 }
 
 .addButton:hover:not(:disabled) {
-  background: #4f46e5;
+  background: #e11d48;
   transform: translateY(-1px);
 }
 

@@ -19,7 +19,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  box-shadow: 0 0 35px rgba(99, 102, 241, 0.25), 
+  box-shadow: 0 0 35px rgba(244, 63, 94, 0.25), 
               inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
@@ -47,7 +47,7 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  background: linear-gradient(135deg, #e11d48, #f43f5e);
   border: 4px solid #0f172a;
   color: #ffffff;
   font-weight: 800;
@@ -59,23 +59,23 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), 
-              0 0 20px rgba(99, 102, 241, 0.4),
+              0 0 20px rgba(244, 63, 94, 0.4),
               inset 0 2px 4px rgba(255, 255, 255, 0.3);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 12;
 }
 
 .spinButton:hover:not(:disabled) {
-  background: linear-gradient(135deg, #6366f1, #818cf8);
+  background: linear-gradient(135deg, #f43f5e, #fda4af);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 
-              0 0 30px rgba(99, 102, 241, 0.6);
+              0 0 30px rgba(244, 63, 94, 0.6);
   transform: translate(-50%, -50%) scale(1.08);
 }
 
 .spinButton:active:not(:disabled) {
   transform: translate(-50%, -50%) scale(0.95);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 
-              0 0 15px rgba(99, 102, 241, 0.4);
+              0 0 15px rgba(244, 63, 94, 0.4);
 }
 
 .spinButton:disabled {
@@ -114,9 +114,9 @@
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4), 0 0 2px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.4), 0 0 2px rgba(244, 63, 94, 0.2);
   }
   50% {
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.7), 0 0 8px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 25px rgba(244, 63, 94, 0.7), 0 0 8px rgba(244, 63, 94, 0.4);
   }
 }
