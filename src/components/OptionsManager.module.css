@@ -1,10 +1,10 @@
 .container {
-  background: rgba(30, 41, 59, 0.45);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 16px;
   padding: 18px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(244, 63, 94, 0.1);
 }
 
 .title {
@@ -13,7 +13,7 @@
   gap: 8px;
   font-size: 15px;
   font-weight: 700;
-  color: #f1f5f9;
+  color: #4c0519;
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -33,10 +33,10 @@
 
 .input {
   flex: 1;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(244, 63, 94, 0.2);
   border-radius: 8px;
-  color: #ffffff;
+  color: #4c0519;
   padding: 8px 12px;
   font-size: 13px;
   outline: none;
@@ -49,7 +49,8 @@
 }
 
 .input::placeholder {
-  color: #64748b;
+  color: #9d174d;
+  opacity: 0.6;
 }
 
 .addButton {
@@ -109,16 +110,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 8px;
   padding: 6px 10px;
   transition: all 0.2s ease;
 }
 
 .itemRow:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .itemLabel {
@@ -138,7 +139,7 @@
 }
 
 .itemName {
-  color: #cbd5e1;
+  color: #4c0519;
   font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
@@ -177,14 +178,15 @@
 }
 
 .emptyText {
-  color: #64748b;
+  color: #9d174d;
+  opacity: 0.8;
   font-size: 12.5px;
   text-align: center;
   padding: 24px 0;
 }
 
 .tipText {
-  color: #fda4af;
+  color: #be185d;
   font-size: 11px;
   margin-top: 10px;
   font-style: italic;
